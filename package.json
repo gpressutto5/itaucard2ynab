@@ -1,0 +1,23 @@
+{
+  "name": "itaucard2ynab",
+  "version": "1.0.0",
+  "description": "Convert itaucard xls to a csv parseable by ynab.",
+  "main": "convert.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gpressutto5/itaucard2ynab.git"
+  },
+  "author": "Guilherme Pressutto",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gpressutto5/itaucard2ynab/issues"
+  },
+  "homepage": "https://github.com/gpressutto5/itaucard2ynab#readme",
+  "dependencies": {
+    "command-line-args": "^5.2.1",
+    "xlsx": "^0.18.5"
+  }
+}

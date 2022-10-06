@@ -65,18 +65,10 @@ if (internationalStart !== -1 && internationalEnd !== -1) {
       const date = row[0];
       const payee = internationalSection[i+1][1];
       const outflow = internationalSection[i+1][3];
-      internationalTransactions.push([date, payee, "", outflow]);
+      const iof = Number(internationalSection.slice(i).find((row) => row[0] === "IOF - transação internacional")[3]);
+      internationalTransactions.push([date, payee, "", outflow + iof]);
     }
   }
-
-  const iof = internationalSection.find((row) => row[0] === "IOF - transação internacional")[3];
-
-  // distribute iof among transactions by percentage
-  const totalInternationalOutflow = internationalTransactions.reduce((acc, row) => acc + row[3], 0);
-  internationalTransactions.forEach((row) => {
-    const percentage = row[3] / totalInternationalOutflow;
-    row[3] = Number((row[3] + (iof * percentage)).toFixed(2));
-  });
 
   csvData.push(...internationalTransactions);
 }
